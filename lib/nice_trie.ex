@@ -35,12 +35,12 @@ defmodule NiceTrie do
   def member?(nil, _),  do: false
 
   @doc ~S"""
-  Store a list of words and return a NiceTrie
+  Load a list of words and return a NiceTrie
   """
-  def store(words),     do: store(words, [])
+  def load(words),     do: store([], words)
 
   def store(trie, [word|words]) do
-    store(words, store_word(trie, word))
+    store(store_word(trie, word), words)
   end
   def store(trie, []),  do: trie
 
